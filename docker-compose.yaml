@@ -1,0 +1,19 @@
+version: "26.0"
+services: 
+  api: 
+    build: ./api
+    container_name: api_container
+    ports:
+      - '4000:4000'
+    volumes: 
+      - ./api:/app
+      - /app/node_modules
+  myblog: 
+     build: ./my-blog
+     container_name: myblog_c
+     ports:
+       - '3000:3000'
+     volumes: 
+       - ./my-blog:/app
+     stdin_open: true
+     tty: true
